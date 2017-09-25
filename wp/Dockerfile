@@ -33,7 +33,7 @@ RUN curl -s -f -L -o /tmp/installer.php https://getcomposer.org/installer \
 COPY code /var/www/html
 
 # install dependencies using Composer
-RUN composer install --working-dir=/var/www/html
+RUN composer install --working-dir=/var/www/html --no-interaction
 
 # make only uploads directory modificable from PHP
 RUN chown -R root:root /var/www/html \

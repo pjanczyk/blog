@@ -1,0 +1,12 @@
+Dockerfile
+.dockerignore
+
+code/composer.lock
+code/content
+code/wp
+code/vendor
+
+!code/content/themes/.gitkeep
+!code/content/uploads/.gitkeep
+
+!code/content/plugins/pj-highlightjs
