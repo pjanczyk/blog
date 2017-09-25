@@ -1,0 +1,13 @@
+# development environment
+# based on `docker-compose.yml`
+
+version: '3'
+
+services:
+  wp:
+    volumes:
+      - type: bind
+        source: ./src
+        target: /var/www/html
+    environment:
+      WORDPRESS_DEBUG: 1

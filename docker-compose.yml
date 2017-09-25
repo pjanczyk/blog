@@ -4,20 +4,24 @@ services:
   db:
     image: mariadb:10.2
     volumes:
-      - db-data:/var/lib/mysql
+      - type: bind
+        source: ./mnt/db/data
+        target: /var/lib/mysql
     restart: always
     environment:
       # password for root superuser
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
       # database created on image startup
       MYSQL_DATABASE: wordpress
-  wordpress:
+  wp:
     depends_on:
       - db
     build: .
     image: pj-blog
     volumes:
-      - ./mnt/uploads:/var/www/html/content/uploads
+      - type: bind
+        source: ./mnt/wp/uploads
+        target: /var/www/html/content/uploads
     ports:
       - 8000:80
     restart: always
@@ -36,6 +40,3 @@ services:
       WORDPRESS_SECURE_AUTH_SALT: ${WORDPRESS_SECURE_AUTH_SALT}
       WORDPRESS_LOGGED_IN_SALT: ${WORDPRESS_LOGGED_IN_SALT}
       WORDPRESS_NONCE_SALT: ${WORDPRESS_NONCE_SALT}
-
-volumes:
-  db-data:
