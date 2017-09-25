@@ -1,3 +1,8 @@
 .idea/
 mnt/
 .env
+wp/code/wp
+wp/code/vendor
+wp/code/composer.lock
+wp/code/content
+!wp/code/content/plugins/pj-highlightjs

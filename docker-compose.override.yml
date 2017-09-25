@@ -7,7 +7,7 @@ services:
   wp:
     volumes:
       - type: bind
-        source: ./src
+        source: ./wp/code
         target: /var/www/html
     environment:
       WORDPRESS_DEBUG: 1
