@@ -30,7 +30,7 @@ RUN curl -s -f -L -o /tmp/installer.php https://getcomposer.org/installer \
  && rm -rf /tmp/*
 
 # copy source files
-COPY src /var/www/html
+COPY code /var/www/html
 
 # install dependencies using Composer
 RUN composer install --working-dir=/var/www/html

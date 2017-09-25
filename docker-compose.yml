@@ -1,11 +1,11 @@
-version: '3'
+version: '3.2'
 
 services:
   db:
     image: mariadb:10.2
     volumes:
       - type: bind
-        source: ./mnt/db/data
+        source: ./mnt/db-data
         target: /var/lib/mysql
     restart: always
     environment:
@@ -16,11 +16,11 @@ services:
   wp:
     depends_on:
       - db
-    build: .
-    image: pj-blog
+    build: ./wp
+    image: pj-wp
     volumes:
       - type: bind
-        source: ./mnt/wp/uploads
+        source: ./mnt/wp-uploads
         target: /var/www/html/content/uploads
     ports:
       - 8000:80
