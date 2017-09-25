@@ -1,0 +1,29 @@
+{
+  "name": "pjanczyk/blog",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Piotr Janczyk",
+      "email": "pjanczyk97@gmail.com"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "johnpbloch/wordpress": "~4.8",
+    "wpackagist-plugin/html-editor-syntax-highlighter": "~2.2",
+    "wpackagist-theme/twentyfifteen": "1.8"
+  },
+  "extra": {
+    "wordpress-install-dir": "wp",
+    "installer-paths": {
+      "content/plugins/{$name}/": ["type:wordpress-plugin"],
+      "content/themes/{$name}/": ["type:wordpress-theme"]
+    }
+  }
+}

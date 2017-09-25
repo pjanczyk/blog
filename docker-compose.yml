@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  db:
+    image: mariadb:10.2
+    volumes:
+      - db-data:/var/lib/mysql
+    restart: always
+    environment:
+      # password for root superuser
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      # database created on image startup
+      MYSQL_DATABASE: wordpress
+  wordpress:
+    depends_on:
+      - db
+    build: .
+    image: pj-blog
+    volumes:
+      - ./mnt/uploads:/var/www/html/content/uploads
+    ports:
+      - 8000:80
+    restart: always
+    environment:
+      # database config
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: ${DB_ROOT_PASSWORD}
+      WORDPRESS_DB_NAME: wordpress
+      # unique keys
+      WORDPRESS_AUTH_KEY: ${WORDPRESS_AUTH_KEY}
+      WORDPRESS_SECURE_AUTH_KEY: ${WORDPRESS_SECURE_AUTH_KEY}
+      WORDPRESS_LOGGED_IN_KEY: ${WORDPRESS_LOGGED_IN_KEY}
+      WORDPRESS_NONCE_KEY: ${WORDPRESS_NONCE_KEY}
+      WORDPRESS_AUTH_SALT: ${WORDPRESS_AUTH_SALT}
+      WORDPRESS_SECURE_AUTH_SALT: ${WORDPRESS_SECURE_AUTH_SALT}
+      WORDPRESS_LOGGED_IN_SALT: ${WORDPRESS_LOGGED_IN_SALT}
+      WORDPRESS_NONCE_SALT: ${WORDPRESS_NONCE_SALT}
+
+volumes:
+  db-data:
