@@ -17,7 +17,7 @@ services:
     depends_on:
       - db
     build: ./wp
-    image: pj-wp
+    image: pjanczyk/blog-wp
     volumes:
       - type: bind
         source: ./mnt/wp-uploads
