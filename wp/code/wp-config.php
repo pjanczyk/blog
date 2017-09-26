@@ -38,16 +38,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', $_ENV['WORDPRESS_DB_NAME']);
+define('DB_NAME', getenv('WORDPRESS_DB_NAME'));
 
 /** MySQL database username */
-define('DB_USER', $_ENV['WORDPRESS_DB_USER']);
+define('DB_USER', getenv('WORDPRESS_DB_USER'));
 
 /** MySQL database password */
-define('DB_PASSWORD', $_ENV['WORDPRESS_DB_PASSWORD']);
+define('DB_PASSWORD', getenv('WORDPRESS_DB_PASSWORD'));
 
 /** MySQL hostname */
-define('DB_HOST', $_ENV['WORDPRESS_DB_HOST']);
+define('DB_HOST', getenv('WORDPRESS_DB_HOST'));
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
@@ -64,14 +64,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY', $_ENV['WORDPRESS_AUTH_KEY']);
-define('SECURE_AUTH_KEY', $_ENV['WORDPRESS_SECURE_AUTH_KEY']);
-define('LOGGED_IN_KEY', $_ENV['WORDPRESS_LOGGED_IN_KEY']);
-define('NONCE_KEY', $_ENV['WORDPRESS_NONCE_KEY']);
-define('AUTH_SALT', $_ENV['WORDPRESS_AUTH_SALT']);
-define('SECURE_AUTH_SALT', $_ENV['WORDPRESS_SECURE_AUTH_SALT']);
-define('LOGGED_IN_SALT', $_ENV['WORDPRESS_LOGGED_IN_SALT']);
-define('NONCE_SALT', $_ENV['WORDPRESS_NONCE_SALT']);
+define('AUTH_KEY', getenv('WORDPRESS_AUTH_KEY'));
+define('SECURE_AUTH_KEY', getenv('WORDPRESS_SECURE_AUTH_KEY'));
+define('LOGGED_IN_KEY', getenv('WORDPRESS_LOGGED_IN_KEY'));
+define('NONCE_KEY', getenv('WORDPRESS_NONCE_KEY'));
+define('AUTH_SALT', getenv('WORDPRESS_AUTH_SALT'));
+define('SECURE_AUTH_SALT', getenv('WORDPRESS_SECURE_AUTH_SALT'));
+define('LOGGED_IN_SALT', getenv('WORDPRESS_LOGGED_IN_SALT'));
+define('NONCE_SALT', getenv('WORDPRESS_NONCE_SALT'));
 
 /**#@-*/
 
@@ -95,7 +95,7 @@ $table_prefix = 'wp_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', (bool)$_ENV['WORDPRESS_DEBUG']);
+define('WP_DEBUG', (bool)getenv('WORDPRESS_DEBUG'));
 
 /* That's all, stop editing! Happy blogging. */
 
