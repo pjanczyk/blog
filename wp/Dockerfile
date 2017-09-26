@@ -29,8 +29,11 @@ RUN curl -s -f -L -o /tmp/installer.php https://getcomposer.org/installer \
  && composer --ansi --version --no-interaction \
  && rm -rf /tmp/*
 
-# copy source files
-COPY code /var/www/html
+# copy php.ini configuration
+COPY php.ini /usr/local/etc/php/
+
+# copy app's source files
+COPY code/ /var/www/html/
 
 # install dependencies using Composer
 RUN composer install --working-dir=/var/www/html --no-interaction

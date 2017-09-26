@@ -9,5 +9,8 @@ services:
       - type: bind
         source: ./wp/code
         target: /var/www/html
+      - type: bind
+        source: ./wp/php.development.ini
+        target: /usr/local/etc/php/php.ini
     environment:
       WORDPRESS_DEBUG: 1
