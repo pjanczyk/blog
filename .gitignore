@@ -1,12 +1,17 @@
 .idea/
 mnt/
 .env
+
 wp/code/wp
 wp/code/vendor
 wp/code/composer.lock
-wp/code/content
 
+wp/code/content/plugins/*
+!wp/code/content/plugins/pj-highlightjs
+
+wp/code/content/themes/*
 !wp/code/content/themes/.gitkeep
+
+wp/code/content/uploads/*
 !wp/code/content/uploads/.gitkeep
 
-!wp/code/content/plugins/pj-highlightjs
