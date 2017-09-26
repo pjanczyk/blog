@@ -36,10 +36,10 @@ COPY php.ini /usr/local/etc/php/
 COPY code/ /var/www/html/
 
 # install dependencies using Composer
-RUN composer install --working-dir=/var/www/html --no-interaction
-
-# make only uploads directory modificable from PHP
-RUN chown -R root:root /var/www/html \
+# and set appropriate permissions
+RUN composer install --working-dir=/var/www/html --no-interaction --no-ansi --optimize-autoloader \
+ && composer clear-cache \
+ && chown -R root:root /var/www/html \
  && chown -R www-data:www-data /var/www/html/content/uploads
 
 VOLUME /var/www/html/content/uploads
