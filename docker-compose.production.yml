@@ -1,7 +1,8 @@
 # Production environment
 # Based on 'docker-compose.yml'
 #
-# 'jwilder/nginx-proxy' container is expected to be running connected to 'proxy' network.
+# 'jwilder/nginx-proxy' and 'jrcs/letsencrypt-nginx-proxy-companion' containers
+# are expected to be running connected to 'proxy' network.
 
 version: '3.2'
 
@@ -17,6 +18,8 @@ services:
       - proxy
     environment:
       - VIRTUAL_HOST=piotrjanczyk.tk
+      - LETSENCRYPT_HOST=piotrjanczyk.tk
+      - LETSENCRYPT_EMAIL=pjanczyk97@gmail.com
 
 networks:
   proxy:
