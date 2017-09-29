@@ -17,8 +17,8 @@ services:
       - default
       - proxy
     environment:
-      - VIRTUAL_HOST=piotrjanczyk.tk
-      - LETSENCRYPT_HOST=piotrjanczyk.tk
+      - VIRTUAL_HOST=piotrjanczyk.com
+      - LETSENCRYPT_HOST=piotrjanczyk.com
       - LETSENCRYPT_EMAIL=pjanczyk97@gmail.com
 
 networks:
