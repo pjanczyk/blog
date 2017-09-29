@@ -18,10 +18,10 @@
  * @package WordPress
  */
 
-
-
-if (isset($_SERVER['HTTP_USER_AGENT_HTTPS']) && $_SERVER['HTTP_USER_AGENT_HTTPS'] == 'ON') {
+if (strtolower($_SERVER['HTTPS'] ?? '') === 'on'
+    || strtolower($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https') {
     $scheme = 'https';
+    $_SERVER['HTTPS'] = 'on'; // workaround for bugged `is_ssl()`
 } else {
     $scheme = 'http';
 }
